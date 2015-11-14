@@ -6,17 +6,17 @@
 //  Copyright © 2015年 pluto-y. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainController.h"
 
-@interface ViewController ()
+@interface MainController ()
 
 @end
 
-@implementation ViewController
+@implementation MainController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
 - (void)didReceiveMemoryWarning {
