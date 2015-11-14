@@ -2,7 +2,7 @@
 //  PrefixHeader.pch
 //  GoToHell
 //
-//  Created by ChipSea on 15/11/14.
+//  Created by Pluto-Y on 15/11/14.
 //  Copyright © 2015年 pluto-y. All rights reserved.
 //
 
@@ -19,5 +19,10 @@
 #import "AFNetworking.h"
 #import "APService.h"
 #import "JPushUtil.h"
+#import "ConstantsUtil.h"
+#import "VerifyUtil.h"
+
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 #endif /* PrefixHeader_pch */
