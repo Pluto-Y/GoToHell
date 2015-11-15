@@ -8,6 +8,6 @@
 
 #import "BottomMenuView.h"
 
-@interface ScoldListController : UIViewController<BottomMenuViewDelegate>
+@interface ScoldListController : UIViewController<BottomMenuViewDelegate, UITableViewDataSource, UITableViewDelegate, ServerUtilDelegate>
 
 @end

@@ -3,16 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "voice_btn.png"
+      "filename" : "icon01.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "voice_btn@2x.png"
+      "filename" : "icon01@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "voice_btn@3x.png",
+      "filename" : "icon01@3x.jpg",
       "scale" : "3x"
     }
   ],
