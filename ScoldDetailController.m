@@ -80,6 +80,7 @@
     _yContentTf.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"GET_NEW_ARTICLE" object:nil];
 }
 
 -(void)leaveEditMode
@@ -89,6 +90,11 @@
     }completion:^(BOOL finished){}];
     
     [_yContentTf resignFirstResponder];
+}
+
+-(void)getNewMessage:(ScoldDetail *)detail {
+//    NSDictionary *info = [notification userInfo];
+    
 }
 
 #pragma mark - Keyboard Observe
