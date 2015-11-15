@@ -153,7 +153,7 @@
                     <navigationItem key="navigationItem" id="BlI-Wz-ZCV">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="ETA-nD-YcN">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k8G-yz-x4E">
-                                <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                <rect key="frame" x="16" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" backgroundImage="icon_user_b"/>
@@ -161,7 +161,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="B99-Pb-bGd">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mJc-PR-qiD">
-                                <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                <rect key="frame" x="334" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" backgroundImage="Bell_802px_1191725_easyicon.net"/>
