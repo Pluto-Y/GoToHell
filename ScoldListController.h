@@ -7,7 +7,10 @@
 //
 
 #import "BottomMenuView.h"
+#import "ScoldDetail.h"
 
 @interface ScoldListController : UIViewController<BottomMenuViewDelegate, UITableViewDataSource, UITableViewDelegate, ServerUtilDelegate>
+
+-(void)addNewScoldDetail:(ScoldDetail *)detail;
 
 @end

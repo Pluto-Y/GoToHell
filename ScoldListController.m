@@ -60,11 +60,11 @@
     switch (indexPath.row) {
         case 0:
             NSLog(@"Text Click");
-            [ScoldTextInputView showScoldTextInputView];
+            [ScoldTextInputView showScoldTextInputView:self];
             break;
         case 1:
             NSLog(@"Voice Click");
-            [ScoldVoiceView showScoldVoiceView];
+            [ScoldVoiceView showScoldVoiceView:self];
             break;
     }
 }
@@ -106,6 +106,10 @@
     [_yScoldTableView reloadData];
 }
 
+-(void)addNewScoldDetail:(ScoldDetail *)detail {
+    [scoldArr insertObject:detail atIndex:0];
+    [_yScoldTableView reloadData];
+}
 
 -(void)requestFailed:(NSString *)suffix {
     
