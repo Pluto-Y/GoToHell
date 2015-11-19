@@ -159,17 +159,42 @@
                                 <state key="normal" backgroundImage="icon_user_b"/>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="B99-Pb-bGd">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mJc-PR-qiD">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ioG-Id-eAi">
+                            <view key="customView" contentMode="scaleToFill" id="Ofi-5c-1BO">
                                 <rect key="frame" x="334" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK4-Qt-DTQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                        <animations/>
+                                        <state key="normal" backgroundImage="Bell_802px_1191725_easyicon.net"/>
+                                        <connections>
+                                            <action selector="gotoDetail:" destination="MHL-DY-Um2" eventType="touchUpInside" id="Brf-06-Gu8"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF1-SA-MNs">
+                                        <rect key="frame" x="19" y="0.0" width="10" height="10"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
                                 <animations/>
-                                <state key="normal" backgroundImage="Bell_802px_1191725_easyicon.net"/>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="yNewFlagView" destination="gF1-SA-MNs" id="1Vc-ZE-eWb"/>
                         <outlet property="yScoldTableView" destination="mNt-pk-3GT" id="k9f-Bu-dli"/>
                     </connections>
                 </viewController>

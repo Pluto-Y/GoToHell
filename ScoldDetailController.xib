@@ -50,11 +50,11 @@
                                 <action selector="changeModeClick:" destination="-1" eventType="touchUpInside" id="ItX-Bc-Oz5"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please Input Content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kvS-9N-oNS">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say something bad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kvS-9N-oNS">
                             <rect key="frame" x="48" y="5" width="307" height="30"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="send"/>
                         </textField>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-Fq-nTF">
                             <rect key="frame" x="48" y="3" width="307" height="34"/>
@@ -136,7 +136,15 @@
                 <constraint firstItem="huc-2o-P6j" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tix-a9-9gx"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Sn0-Ik-1Zi" appends="YES" id="f6O-PW-myG"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="Sn0-Ik-1Zi">
+            <connections>
+                <action selector="leaveEditMode:" destination="-1" id="gkz-yk-SxR"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="chat_bottom_voice_nor" width="22" height="22"/>

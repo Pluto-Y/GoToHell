@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *yVoiceBtn;
 @property (assign, nonatomic) BOOL isFirst;
 @property (retain, nonatomic) ScoldDetail *firstDetail;
+@property (assign, nonatomic) BOOL isModel;
 
 @end

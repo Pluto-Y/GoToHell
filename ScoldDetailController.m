@@ -48,39 +48,40 @@
     textModeFlag = YES;
     business = [[ScoldBusiness alloc] initWithDelegate:self];
     scoldDetails = [[NSMutableArray alloc] init];
-//    ScoldDetail *detail;
-//    for (int i = 0 ; i < 10; i++) {
-//        detail = [[ScoldDetail alloc] init];
-//        if (i % 2 == 0) {
-//            detail.contentType = @"text";
-//            detail.text = @"";
-//            for (int j = 0; j < i + 1; j++) {
-//                detail.text = [detail.text stringByAppendingString:@"Fuck you!Son of bitch!"];
-//            }
-//            detail.time = 1447506927501 + i * 1000;
-//            detail.sender = [[UserInfo alloc] init];
-//            detail.sender.userName = @"HelloKitty";
-//        } else {
-////            detail.contentType = @"voice";
-//            detail.contentType = @"text";
-//            detail.text = @"";
-//            for (int j = 0; j < i + 1; j++) {
-//                detail.text = [detail.text stringByAppendingString:@"Son of bitch!Fuck you!"];
-//            }
-//            detail.time = 1447506927501 + i * 1000;
-//            detail.sender = [[UserInfo alloc] init];
-//            detail.sender.userName = @"HelloWorld";
-//        }
-//        [scoldDetails addObject:detail];
-//    }
-    
+    if (_isModel) {
+        ScoldDetail *detail;
+        for (int i = 0 ; i < 10; i++) {
+            detail = [[ScoldDetail alloc] init];
+            if (i % 2 == 0) {
+                detail.contentType = @"text";
+                detail.text = @"";
+                for (int j = 0; j < i + 1; j++) {
+                    detail.text = [detail.text stringByAppendingString:@"Fuck you!Son of bitch!"];
+                }
+                detail.time = 1447506927501 + i * 1000;
+                detail.sender = [[UserInfo alloc] init];
+                detail.sender.userName = @"HelloKitty";
+            } else {
+                //            detail.contentType = @"voice";
+                detail.contentType = @"text";
+                detail.text = @"";
+                for (int j = 0; j < i + 1; j++) {
+                    detail.text = [detail.text stringByAppendingString:@"Son of bitch!Fuck you!"];
+                }
+                detail.time = 1447506927501 + i * 1000;
+                detail.sender = [[UserInfo alloc] init];
+                detail.sender.userName = @"HelloWorld";
+            }
+            [scoldDetails addObject:detail];
+        }
+    }
     _yScoldDetailTableView.estimatedRowHeight = 60;
     _yScoldDetailTableView.rowHeight = UITableViewAutomaticDimension;
     
     _yContentTf.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"GET_NEW_ARTICLE" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"GET_NEW_ARTICLE" object:nil];
 }
 
 -(void)leaveEditMode
@@ -108,17 +109,18 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     CGFloat distanceToMove = kbSize.height - normalKeyboardHeight;
     
-    if (distanceToMove == 0) {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen]bounds].size.height-216);
-        }completion:^(BOOL finished){
-        }];
-    }else{
-        [UIView animateWithDuration:0.2 animations:^{
-            self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-distanceToMove);
-        }completion:^(BOOL finished){
-        }];
-    }
+//    if (distanceToMove == 0) {
+//        [UIView animateWithDuration:0.2 animations:^{
+//            self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen]bounds].size.height-216);
+//        }completion:^(BOOL finished){
+//        }];
+//    }else{
+//        [UIView animateWithDuration:0.2 animations:^{
+//            self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-distanceToMove);
+//        }completion:^(BOOL finished){
+//        }];
+//    }
+    _yViewBottom.constant = kbSize.height;
     if (scoldDetails.count >1) {
         [self.yScoldDetailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:scoldDetails.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
@@ -246,6 +248,11 @@
 
 -(void)requestFailed:(NSString *)suffix {
     
+}
+
+- (IBAction)leaveEditMode:(id)sender {
+    [_yContentTf resignFirstResponder];
+    _yViewBottom.constant = 0;
 }
 
 @end

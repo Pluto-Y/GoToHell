@@ -11,12 +11,14 @@
 #import "ScoldVoiceView.h"
 #import "ScoldCell.h"
 #import "ScoldDetailController.h"
+#import "MJRefresh.h"
 
 @interface ScoldListController () {
     NSMutableArray *scoldArr;
     ScoldBusiness *business;
 }
 @property (strong, nonatomic) IBOutlet UITableView *yScoldTableView;
+@property (strong, nonatomic) IBOutlet UILabel *yNewFlagView;
 
 @end
 
@@ -35,7 +37,16 @@
     _yScoldTableView.estimatedRowHeight = 80;
     business = [[ScoldBusiness alloc] initWithDelegate:self];
     scoldArr = [[NSMutableArray alloc] init];
+    
+
+
     [business getScoldes];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNewMessagew) name:@"GET_NEW_ARTICLE" object:nil];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [scoldArr removeAllObjects];
+        [business getScoldes];
+    }];
+    _yScoldTableView.header = header;
 }
 #pragma mark - callback functions
 /**
@@ -48,6 +59,20 @@
     NSMutableArray *menuName = [[NSMutableArray alloc] initWithArray:@[@"Text", @"Voice"]];
     BottomMenuView *menuView = [[BottomMenuView alloc] initWithMenus:menuName delegate:self];
     [[[UIApplication sharedApplication].delegate window] addSubview:menuView];
+    
+}
+
+-(void)getNewMessagew{
+    _yNewFlagView.hidden = NO;
+    
+}
+
+
+- (IBAction)gotoDetail:(id)sender {
+    _yNewFlagView.hidden = YES;
+    ScoldDetailController *controller = [[ScoldDetailController alloc] init];
+    controller.isModel = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /**
@@ -100,10 +125,17 @@
 
 -(void)requestFinished:(ServerResult *)info suffix:(NSString *)suffix {
     NSArray *result = [RMMapper arrayOfClass:[ScoldDetail class] fromArrayOfDictionary:info.data];
+    if (result.count > 0) {
+        [scoldArr removeAllObjects];
+    }
     for (ScoldDetail *detail in result) {
         [scoldArr addObject:detail];
     }
-    [_yScoldTableView reloadData];
+    [_yScoldTableView.header endRefreshing];
+    if (scoldArr.count > 0) {
+        [_yScoldTableView reloadData];
+    }
+
 }
 
 -(void)addNewScoldDetail:(ScoldDetail *)detail {
